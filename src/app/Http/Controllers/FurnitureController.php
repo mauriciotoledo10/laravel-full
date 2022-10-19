@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FurnitureRequest;
 use App\Models\Furniture;
 use Illuminate\Http\Request;
 
@@ -28,16 +29,11 @@ class FurnitureController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FurnitureRequest $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'tension' => 'required',
-            'brand' => 'required'
-        ]);
 
         $furniture = Furniture::create($request->all());
+
         return [
             "status" => 1,
             "data" => $furniture
@@ -65,14 +61,8 @@ class FurnitureController extends Controller
      * @param  \App\Models\Furniture  $furniture
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Furniture $furniture)
+    public function update(FurnitureRequest $request, Furniture $furniture)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'tension' => 'required',
-            'brand' => 'required'
-        ]);
 
         $furniture->update($request->all());
 
