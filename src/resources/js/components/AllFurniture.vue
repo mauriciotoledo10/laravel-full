@@ -2,6 +2,8 @@
     <div>
         <h2 class="text-center">Furnitures List</h2>
 
+        <button class="btn btn-success" @click="$router.push('create')">NEW Furniture</button>
+
         <div v-if="showMessage" :class="alertMessageClass" role="alert">
             {{alertMessage}}
         </div>
