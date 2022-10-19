@@ -14,17 +14,12 @@ class FurnitureController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $furnitures = Furniture::latest()->paginate(10);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return [
+            "status" => 1,
+            "data" => $furnitures
+        ];
     }
 
     /**
@@ -35,7 +30,18 @@ class FurnitureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'tension' => 'required',
+            'brand' => 'required'
+        ]);
+
+        $furniture = Furniture::create($request->all());
+        return [
+            "status" => 1,
+            "data" => $furniture
+        ];
     }
 
     /**
@@ -46,18 +52,10 @@ class FurnitureController extends Controller
      */
     public function show(Furniture $furniture)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Furniture  $furniture
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Furniture $furniture)
-    {
-        //
+        return [
+            "status" => 1,
+            "data" => $furniture
+        ];
     }
 
     /**
@@ -69,7 +67,20 @@ class FurnitureController extends Controller
      */
     public function update(Request $request, Furniture $furniture)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'tension' => 'required',
+            'brand' => 'required'
+        ]);
+
+        $furniture->update($request->all());
+
+        return [
+            "status" => 1,
+            "data" => $furniture,
+            "msg" => "Furniture updated successfully"
+        ];
     }
 
     /**
@@ -80,6 +91,11 @@ class FurnitureController extends Controller
      */
     public function destroy(Furniture $furniture)
     {
-        //
+        $furniture->delete();
+        return [
+            "status" => 1,
+            "data" => $furniture,
+            "msg" => "Furniture deleted successfully"
+        ];
     }
 }
