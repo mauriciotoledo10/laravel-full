@@ -1,5 +1,7 @@
 # laravel-full
 
+![alt text](https://github.com/mauriciotoledo10/laravel-full/blob/develop/img/furniture.png?raw=true)
+
 Pequena API para cadastro de eletrodomésticos contendo recursos para criação, listagem, edição e remoção de registros. Utilizando Laravel e VueJS.
 
 # Funcionalidades e Tecnologias
