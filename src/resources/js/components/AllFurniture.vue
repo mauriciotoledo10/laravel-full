@@ -27,7 +27,7 @@
                 <td>{{ furniture.tension }}</td>
                 <td>
                     <div class="btn-group" role="group">
-                        <router-link :to="{name: 'edit', params: { id: furniture.id }}" class="btn btn-success">Edit</router-link>
+                        <router-link :to="{name: 'edit', params: { id: furniture.id }}" class="btn btn-primary">Edit</router-link>
                         <button class="btn btn-danger" @click="deleteFurniture(furniture.id)">Delete</button>
                     </div>
                 </td>
