@@ -7,12 +7,18 @@
             <tr>
                 <th>ID</th>
                 <th>Title</th>
+                <th>Description</th>
+                <th>Brand</th>
+                <th>Tension</th>
             </tr>
             </thead>
             <tbody>
             <tr v-for="furniture in furnitures" :key="furniture.id">
                 <td>{{ furniture.id }}</td>
                 <td>{{ furniture.title }}</td>
+                <td>{{ furniture.description }}</td>
+                <td>{{ furniture.brand }}</td>
+                <td>{{ furniture.tension }}</td>
                 <td>
                     <div class="btn-group" role="group">
                         <router-link :to="{name: 'edit', params: { id: furniture.id }}" class="btn btn-success">Edit</router-link>

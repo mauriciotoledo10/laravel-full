@@ -8,7 +8,23 @@
                         <label>Title</label>
                         <input type="text" class="form-control" v-model="furniture.title">
                     </div>
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" class="form-control" v-model="furniture.description">
+                    </div>
+                    <div class="form-group">
+                        <label>Brand</label>
+                        <input type="text" class="form-control" v-model="furniture.brand">
+                    </div>
+                    <div class="form-group">
+                        <label>Tension</label>
+                        <input type="text" class="form-control" v-model="furniture.tension">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>
+
                 </form>
             </div>
         </div>
@@ -19,13 +35,13 @@
     export default {
         data() {
             return {
-                product: {}
+                furniture: {}
             }
         },
         methods: {
             addFurniture() {
                 this.axios
-                    .post('http://signup.localhost:8000/api/furnitures', this.product)
+                    .post('http://signup.localhost:8000/api/furnitures', this.furniture)
                     .then(response => (
                         this.$router.push({ name: 'home' })
                     ))

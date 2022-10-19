@@ -1,12 +1,25 @@
 <template>
     <div>
         <h3 class="text-center">Edit Furniture</h3>
+
         <div class="row">
             <div class="col-md-6">
                 <form @submit.prevent="updateFurniture">
                     <div class="form-group">
-                        <label>Name</label>
+                        <label>Title</label>
                         <input type="text" class="form-control" v-model="furniture.title">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" class="form-control" v-model="furniture.description">
+                    </div>
+                    <div class="form-group">
+                        <label>Brand</label>
+                        <input type="text" class="form-control" v-model="furniture.brand">
+                    </div>
+                    <div class="form-group">
+                        <label>Tension</label>
+                        <input type="text" class="form-control" v-model="furniture.tension">
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </form>
@@ -19,7 +32,7 @@
     export default {
         data() {
             return {
-                product: {}
+                furniture: {}
             }
         },
         created() {
