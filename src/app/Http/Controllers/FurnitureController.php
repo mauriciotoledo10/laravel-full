@@ -53,12 +53,7 @@ class FurnitureController extends Controller
     {
 
         $furniture->update($request->all());
-
-        return [
-            "status" => 1,
-            "data" => $furniture,
-            "msg" => "Furniture updated successfully"
-        ];
+        return response()->json(["msg" => "Furniture updated successfully"]);
     }
 
     /**
@@ -70,10 +65,6 @@ class FurnitureController extends Controller
     public function destroy(Furniture $furniture)
     {
         $furniture->delete();
-        return [
-            "status" => 1,
-            "data" => $furniture,
-            "msg" => "Furniture deleted successfully"
-        ];
+        return response()->json(["msg" => "Furniture deleted successfully"]);
     }
 }
