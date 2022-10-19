@@ -18,8 +18,8 @@ class CreateFurnituresTable extends Migration
 
             $table->string('title', 255)->nullable();
             $table->longText('description');
-            $table->string('tension', 50);
-            $table->string('brand', 50);
+            $table->enum('tension', ['110v', '220v']);
+            $table->enum('brand', ['Electrolux', 'Brastemp', 'Fischer', 'Samsung', 'LG']);
 
 
             $table->timestamps();

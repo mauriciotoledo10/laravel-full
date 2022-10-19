@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
@@ -13,8 +14,14 @@ class FurnitureRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
-            'tension' => 'required',
-            'brand' => 'required'
+            'tension' => [
+                'required',
+                Rule::in(['110v', '220v']),
+            ],
+            'brand' => [
+                'required',
+                Rule::in(['Electrolux', 'Brastemp', 'Fischer', 'Samsung', 'LG']),
+            ]
         ];
     }
 
