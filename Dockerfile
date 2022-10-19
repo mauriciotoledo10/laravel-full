@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y \
     libzip-dev
 RUN docker-php-ext-install zip
 
+RUN apt-get install net-tools
+
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN a2enmod rewrite
