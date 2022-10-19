@@ -46,6 +46,11 @@ composer install
 cp .env.example .env
 ```
 
+Em seguida, rode as migrations (se vc copiou o .env.example, o banco já estará configurado)
+```sh
+php artisan migrate
+```
+
 Agora, instale os pacotes do npm e rode o webpack para comećar interagir com o sistema
 ```sh
 npm install && npm run watch
