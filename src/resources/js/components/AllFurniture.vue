@@ -5,6 +5,7 @@
         <table class="table">
             <thead>
             <tr>
+                <th>ID</th>
                 <th>Title</th>
             </tr>
             </thead>

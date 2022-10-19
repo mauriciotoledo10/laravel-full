@@ -15,12 +15,7 @@ class FurnitureController extends Controller
      */
     public function index()
     {
-        $furnitures = Furniture::latest()->paginate(10);
-
-        return [
-            "status" => 1,
-            "data" => $furnitures
-        ];
+        return response()->json(Furniture::all());
     }
 
     /**
@@ -33,11 +28,7 @@ class FurnitureController extends Controller
     {
 
         $furniture = Furniture::create($request->all());
-
-        return [
-            "status" => 1,
-            "data" => $furniture
-        ];
+        return response()->json($furniture);
     }
 
     /**
@@ -48,10 +39,7 @@ class FurnitureController extends Controller
      */
     public function show(Furniture $furniture)
     {
-        return [
-            "status" => 1,
-            "data" => $furniture
-        ];
+        return response()->json($furniture);
     }
 
     /**
