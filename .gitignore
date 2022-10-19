@@ -2,3 +2,7 @@
 /.idea
 /src/package-lock.json
 package-lock.json
+/src/public/js
+/src/public/css
+/src/ublic/build
+/src/public/mix-manifest.json
