@@ -11,5 +11,4 @@ class Furniture extends Model
 
     protected $table = 'furnitures';
     protected $guarded = ['id'];
-
 }
