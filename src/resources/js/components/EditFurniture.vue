@@ -47,7 +47,7 @@
                 this.axios
                     .patch(`http://signup.localhost:8000/api/furnitures/${this.$route.params.id}`, this.furniture)
                     .then((res) => {
-                        this.$router.push({ name: 'home' });
+                        this.$router.push({ name: 'home', params: { msg: 'The furniture ' + this.furniture.title + ' was succesfully updated!', class: 'alert alert-primary' } });
                     });
             }
         }

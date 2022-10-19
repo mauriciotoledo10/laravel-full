@@ -2,6 +2,10 @@
     <div>
         <h2 class="text-center">Furnitures List</h2>
 
+        <div v-if="showMessage" :class="alertMessageClass" role="alert">
+            {{alertMessage}}
+        </div>
+
         <table class="table">
             <thead>
             <tr>
@@ -34,11 +38,23 @@
 <script>
     export default {
         data() {
+
+            this.showMessage = false;
+            this.alertMessage = '';
+            this.alertMessageClass = '';
+
             return {
                 furnitures: []
             }
         },
         created() {
+
+            if (this.$route.params.msg) {
+                this.showMessage = true;
+                this.alertMessage = this.$route.params.msg;
+                this.alertMessageClass = this.$route.params.class;
+            }
+
             this.axios
                 .get('http://signup.localhost:8000/api/furnitures/')
                 .then(response => {
@@ -51,7 +67,10 @@
                     .delete(`http://signup.localhost:8000/api/furnitures/${id}`)
                     .then(response => {
                         let i = this.furnitures.map(data => data.id).indexOf(id);
-                        this.furnitures.splice(i, 1)
+                        this.furnitures.splice(i, 1);
+                        this.showMessage = true;
+                        this.alertMessage = 'The furniture was succesfully removed!';
+                        this.alertMessageClass = 'alert alert-danger';
                     });
             }
         }

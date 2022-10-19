@@ -43,7 +43,7 @@
                 this.axios
                     .post('http://signup.localhost:8000/api/furnitures', this.furniture)
                     .then(response => (
-                        this.$router.push({ name: 'home' })
+                        this.$router.push({ name: 'home', params: { msg: 'The furniture ' + this.furniture.title + ' was succesfully added!', class: 'alert alert-success' } })
                     ))
                     .catch(err => console.log(err))
                     .finally(() => this.loading = false)
