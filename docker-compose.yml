@@ -1,0 +1,32 @@
+version: "3"
+services:
+  php-apache:
+    container_name: apache-server
+    build: 
+      args:
+        user: admin
+        uid: 1000
+      context: .
+    ports:
+      - "8000:80"
+    volumes:
+      - ./src:/var/www/html
+    extra_hosts:
+    - "signup.localhost:127.0.0.1"
+  
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-server
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - .:/application
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=msqpwd123@
+      - MYSQL_DATABASE=signup
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=msqpwd123@
+    ports:
+      - "8082:3306"
+      
+
