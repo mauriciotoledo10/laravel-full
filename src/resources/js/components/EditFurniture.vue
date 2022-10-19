@@ -15,11 +15,22 @@
                     </div>
                     <div class="form-group">
                         <label>Brand</label>
-                        <input type="text" class="form-control" v-model="furniture.brand">
+                        <select class="form-select" v-model="furniture.brand">
+                            <option selected>Select the furniture brand</option>
+                            <option value="Electrolux">Electrolux</option>
+                            <option value="Brastemp">Brastemp</option>
+                            <option value="Fischer">Fischer</option>
+                            <option value="Samsung">Samsung</option>
+                            <option value="LG">LG</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Tension</label>
-                        <input type="text" class="form-control" v-model="furniture.tension">
+                        <select class="form-select" v-model="furniture.tension">
+                            <option selected>Select the furniture tension</option>
+                            <option value="110v">110v</option>
+                            <option value="220v">220v</option>
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </form>
